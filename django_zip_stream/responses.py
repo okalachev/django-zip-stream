@@ -30,6 +30,6 @@ class TransferZipResponse(HttpResponse):
         Given a file_info tuple (path, system_path, size), this method
         assembles a string containing mod_zip commands for a single file.
         """
-        path, system_path, size = file_info
-        single_file_info = "- %s %s %s" % (size, system_path, path)
+        path, system_path, size, crc32 = file_info
+        single_file_info = "%s %s %s %s" % (crc32, size, system_path, path)
         return single_file_info
